@@ -15,6 +15,7 @@ private:
 
 public:
 	Logger(char *host,char *user, char *password, char *database);
+	int CreateNewAccount(char *login, char *password, char *email);
 	int Authorise(char *login, char *password);
 	~Logger();
 };
