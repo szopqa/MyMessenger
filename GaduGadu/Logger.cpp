@@ -4,6 +4,11 @@ using namespace std;
 
 Logger::Logger(char * host, char * user, char * password, char * database)  //initialization
 {
+
+	this->loggedIn = false;
+
+//DATABASE CONNECTION
+
 	connector = mysql_init(NULL);
 
 	if (connector == NULL) {
@@ -16,7 +21,7 @@ Logger::Logger(char * host, char * user, char * password, char * database)  //in
 	}
 }
 
-int Logger::CreateNewAccount(char * login, char * password, char *email)
+int Logger::CreateNewAccount()
 {
 
 /*
@@ -27,24 +32,33 @@ int Logger::CreateNewAccount(char * login, char * password, char *email)
 
 	char queryBuff[2048];
 	bool userExists = false;
+	
+	string l, p, e;
+	
+	char  loginTyped [50];
+	char  passwordTyped [50];
+	char  emailTyped [50];
+
+#pragma region UserInterface
+
+	system("cls");
+	cout << "Insert login: \n";	cin >> loginTyped;
+	cout << "Insert password: \n";	cin >> passwordTyped;
+	cout << "Insert your email adress: \n";	cin >> emailTyped;
+
+	
+
+#pragma endregion
 
 
-
+#pragma region PossibleOptionsWhileCreatingNewAccount
 
 //FIRST : Checking if username is available 
 
 	sprintf_s(queryBuff, "SELECT user_id FROM users\
-										WHERE login = '%s'", login);
+										WHERE login = '%s'", loginTyped);
 
-	if (mysql_query(connector, queryBuff)) {
-		finish_with_error(connector);
-	}
-
-	result = mysql_store_result(connector);
-
-	if (result == NULL) {
-		finish_with_error(connector);
-	}
+	result = getResult(queryBuff, connector);
 
 	row = mysql_fetch_row(result);
 
@@ -62,17 +76,9 @@ int Logger::CreateNewAccount(char * login, char * password, char *email)
 //SECOND : Checking if email adress is available
 
 	sprintf_s(queryBuff, "SELECT user_id FROM users\
-										WHERE email = '%s'", email);
+										WHERE email = '%s'", emailTyped);
 
-	if (mysql_query(connector, queryBuff)) {
-		finish_with_error(connector);
-	}
-
-	result = mysql_store_result(connector);
-
-	if (result == NULL) {
-		finish_with_error(connector);
-	}
+	result = getResult(queryBuff, connector);
 
 	row = mysql_fetch_row(result);
 
@@ -87,24 +93,54 @@ int Logger::CreateNewAccount(char * login, char * password, char *email)
 
 
 
-//THIRD : Everything is fine, lets create an account
+//THIRD: Occurs when login and email are used
+
+			/*
+
+			sprintf_s(queryBuff, "SELECT user_id FROM users\
+												WHERE login = '%s'\
+												AND email = '%s'",login, email);
+
+			result = getResult(queryBuff, connector);
+
+			row = mysql_fetch_row(result);
+
+			if (row != NULL) {
+				userExists = true;
+				return 3;
+				//TODO : returns 3 when email login and adress are used
+			}
+	
+			*/
 
 
-	sprintf_s(queryBuff, "INSERT INTO users VALUE \(user_id,'%s','%s','%s')",login, password, email);
+
+
+//FOURTH : Everything is fine, lets create an account
+
+	sprintf_s(queryBuff, "INSERT INTO users VALUE (user_id,'%s','%s','%s')",loginTyped, passwordTyped, emailTyped);
 
 	if (mysql_query(connector, queryBuff)) {
 		finish_with_error(connector);
 	}
 
+	/*
 	result = mysql_store_result(connector);
 
 	if (result == NULL) {
 		finish_with_error(connector);
 	}
 
+	*/
 
-	return 3;
+
+	return 4;
 	//TODO : Account successfully created
+	
+
+#pragma endregion
+
+
 }
 
 
@@ -120,7 +156,36 @@ void Logger::finish_with_error(MYSQL *con) {
 
 }
 
+
+
 int Logger::Authorise(char * login, char * password)
 {
+	return 1;
+}
+
+MYSQL_RES * Logger::getResult(char * buff, MYSQL * con){
 	
+	if (mysql_query(con, buff)) {
+		finish_with_error(con);
+	}
+
+	MYSQL_RES *tempResult = mysql_store_result(con);
+
+	if (tempResult == NULL) {
+		finish_with_error(con);
+		return nullptr;
+	}
+
+	return tempResult;
+	
+}
+
+bool Logger::checkIfLoggedIn()
+{
+	if (this->loggedIn == true) {
+		return true;
+	} 
+
+	else
+		return false;
 }
