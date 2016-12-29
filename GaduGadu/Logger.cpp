@@ -33,8 +33,6 @@ int Logger::CreateNewAccount()
 	char queryBuff[2048];
 	bool userExists = false;
 	
-	string l, p, e;
-	
 	char  loginTyped [50];
 	char  passwordTyped [50];
 	char  emailTyped [50];

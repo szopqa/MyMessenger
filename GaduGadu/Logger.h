@@ -8,7 +8,7 @@
 #include <mysql.h>
 
 class Logger
-{
+{	
 private:
 	
 	MYSQL *connector;

@@ -76,9 +76,25 @@ int main() {
 			break;
 
 		case 3:
+
+			exit(0);
+
 			break;
 
 		default:
+
+			cout << "Wrong choice" << endl;
+			
+			for (size_t i = 0; i < 6; i++)
+			{
+				Sleep(300);
+				cout << ".";
+			}
+
+			//ERROR : infinite loop while pressing for egzample 'd'
+			
+			system("cls");
+
 			break;
 
 		}
