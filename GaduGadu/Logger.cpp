@@ -21,6 +21,16 @@ Logger::Logger(char * host, char * user, char * password, char * database)  //in
 	}
 }
 
+
+
+Logger::~Logger()
+{
+	mysql_close(connector);
+}
+
+
+
+
 int Logger::CreateNewAccount()
 {
 
@@ -142,10 +152,50 @@ int Logger::CreateNewAccount()
 }
 
 
-Logger::~Logger()
+
+int Logger::Authorise()
 {
-	mysql_close(connector);
+
+	char queryBuff[2048];
+	char  loginTyped[50];
+	char  passwordTyped[50];
+		
+
+
+	system("cls");
+	cout << "Insert login: \n";	cin >> loginTyped;
+	cout << "Insert password: \n";	cin >> passwordTyped;
+
+
+
+
+	sprintf_s(queryBuff, "SELECT user_id FROM users \
+										 WHERE login = '%s' \
+											AND password = '%s'",loginTyped, passwordTyped);
+
+
+	result = getResult(queryBuff, connector);
+
+	row = mysql_fetch_row(result);
+
+
+	if (row == NULL) {		//didnt find user in database - login failed
+	
+		loggedIn = false;
+		return 0;
+
+	}
+	
+	else {					//user found, looged in
+
+		this->loggedIn = true;
+		return 1;
+
+	}
+
+
 }
+
 
 void Logger::finish_with_error(MYSQL *con) {
 
@@ -156,10 +206,6 @@ void Logger::finish_with_error(MYSQL *con) {
 
 
 
-int Logger::Authorise(char * login, char * password)
-{
-	return 1;
-}
 
 MYSQL_RES * Logger::getResult(char * buff, MYSQL * con){
 	
@@ -177,6 +223,8 @@ MYSQL_RES * Logger::getResult(char * buff, MYSQL * con){
 	return tempResult;
 	
 }
+
+
 
 bool Logger::checkIfLoggedIn()
 {
