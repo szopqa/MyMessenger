@@ -35,14 +35,14 @@ int Logger::CreateNewAccount()
 {
 
 /*
-	At first I have to check if nickname and email adress are not used yet. 
+	At first I have to check if nickname and email adress are not used yet.
 	If they are free to use I can create a new account using login, password and email typed by user
 */
 
 
 	char queryBuff[2048];
 	bool userExists = false;
-	
+
 	char  loginTyped [50];
 	char  passwordTyped [50];
 	char  emailTyped [50];
@@ -54,14 +54,12 @@ int Logger::CreateNewAccount()
 	cout << "Insert password: \n";	cin >> passwordTyped;
 	cout << "Insert your email adress: \n";	cin >> emailTyped;
 
-	
-
 #pragma endregion
 
 
 #pragma region PossibleOptionsWhileCreatingNewAccount
 
-//FIRST : Checking if username is available 
+//FIRST : Checking if username is available
 
 	sprintf_s(queryBuff, "SELECT user_id FROM users\
 										WHERE login = '%s'", loginTyped);
@@ -118,7 +116,7 @@ int Logger::CreateNewAccount()
 				return 3;
 				//TODO : returns 3 when email login and adress are used
 			}
-	
+
 			*/
 
 
@@ -144,7 +142,7 @@ int Logger::CreateNewAccount()
 
 	return 4;
 	//TODO : Account successfully created
-	
+
 
 #pragma endregion
 
@@ -159,7 +157,7 @@ int Logger::Authorise()
 	char queryBuff[2048];
 	char  loginTyped[50];
 	char  passwordTyped[50];
-		
+
 
 
 	system("cls");
@@ -180,12 +178,12 @@ int Logger::Authorise()
 
 
 	if (row == NULL) {		//didnt find user in database - login failed
-	
+
 		loggedIn = false;
 		return 0;
 
 	}
-	
+
 	else {					//user found, looged in
 
 		this->loggedIn = true;
@@ -208,7 +206,7 @@ void Logger::finish_with_error(MYSQL *con) {
 
 
 MYSQL_RES * Logger::getResult(char * buff, MYSQL * con){
-	
+
 	if (mysql_query(con, buff)) {
 		finish_with_error(con);
 	}
@@ -221,7 +219,7 @@ MYSQL_RES * Logger::getResult(char * buff, MYSQL * con){
 	}
 
 	return tempResult;
-	
+
 }
 
 
@@ -230,7 +228,7 @@ bool Logger::checkIfLoggedIn()
 {
 	if (this->loggedIn == true) {
 		return true;
-	} 
+	}
 
 	else
 		return false;
