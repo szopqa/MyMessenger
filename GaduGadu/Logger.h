@@ -8,9 +8,9 @@
 #include <mysql.h>
 
 class Logger
-{	
+{
 private:
-	
+
 	MYSQL *connector;
 	MYSQL_RES *result;
 	MYSQL_ROW row;
@@ -30,4 +30,3 @@ public:
 	MYSQL_RES * getResult(char *buff, MYSQL *con);
 	bool checkIfLoggedIn();
 };
-
