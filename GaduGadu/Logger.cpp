@@ -54,8 +54,6 @@ int Logger::CreateNewAccount()
 	cout << "Insert password: \n";	cin >> passwordTyped;
 	cout << "Insert your email adress: \n";	cin >> emailTyped;
 
-
-
 #pragma endregion
 
 

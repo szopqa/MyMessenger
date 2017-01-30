@@ -1,10 +1,25 @@
 #include "Logger.h"
+#include "InterfaceManager.h"
 
 using namespace std;
 
 
+int main() {
 
-void loginMenu(Logger &obj); 
+	InterfaceManager::ShowMainMenu();
+
+
+
+
+
+	return 0;
+}
+
+
+
+/*
+
+void loginMenu(Logger &obj);
 
 
 
@@ -15,7 +30,7 @@ int main() {
 
 //LOGIN MENU
 
-	loginMenu(log);   
+	loginMenu(log);
 
 
 
@@ -152,3 +167,5 @@ void loginMenu(Logger &log) {
 
 
 }
+
+*/

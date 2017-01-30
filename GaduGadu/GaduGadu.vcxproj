@@ -150,9 +150,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AppLogic.h" />
+    <ClInclude Include="DataGetter.h" />
+    <ClInclude Include="InterfaceManager.h" />
     <ClInclude Include="Logger.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AppLogic.cpp" />
+    <ClCompile Include="DataGetter.cpp" />
+    <ClCompile Include="InterfaceManager.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LoggerSource.cpp" />
   </ItemGroup>
