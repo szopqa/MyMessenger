@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
 
-	InterfaceManager::ShowMainMenu();
+	InterfaceManager::showMainMenu();
 
 
 

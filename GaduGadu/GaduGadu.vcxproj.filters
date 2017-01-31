@@ -27,6 +27,9 @@
     <ClInclude Include="InterfaceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UserData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Logger.cpp">
@@ -42,6 +45,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InterfaceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
