@@ -21,6 +21,7 @@ public:
 	~AppLogic();
 
 	int CreateNewAccount();
+	int checIfUserExists(char * login, char * email);
 	int Authorise();
 };
 

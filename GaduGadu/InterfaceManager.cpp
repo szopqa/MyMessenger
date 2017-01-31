@@ -11,26 +11,15 @@ InterfaceManager::~InterfaceManager()
 {
 }
 
-void InterfaceManager::showLoginMenu(char*log, char*pass) {
-	
-	system("cls");
-
-	cout << "Insert login: ";
-	cin >> log;
-	cout << "Insert password: ";
-	cin >> pass;
-
-}
-
 
 void InterfaceManager::showMainMenu() {
 
 	int login_choice = 0;
 	int login_result = 0;
-	bool logged = false;
-	AppLogic feature;
 		
-
+	AppLogic feature;
+	
+	bool logged = false;
 	cout << "1. Log in" << endl;
 	cout << "2. Create a new account" << endl;
 	cout << "3. Exit" << endl;
@@ -62,7 +51,7 @@ void InterfaceManager::showMainMenu() {
 
 
 
-					break;
+				break;
 
 
 
@@ -81,5 +70,32 @@ void InterfaceManager::showMainMenu() {
 	}
 
 
+
+}
+
+
+
+void InterfaceManager::showLoginMenu(char*log, char*pass) {
+
+	system("cls");
+
+	cout << "Insert login: ";
+	cin >> log;
+	cout << "Insert password: ";
+	cin >> pass;
+
+}
+
+
+void InterfaceManager::showCreateNewAccountMenu(char *log, char*pass, char*email) {
+
+	system("cls");
+
+	cout << "Insert login: \n";
+	cin >> log;
+	cout << "Insert password: \n";	
+	cin >> pass;
+	cout << "Insert your email adress: \n";
+	cin >> email;
 
 }

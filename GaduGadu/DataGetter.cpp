@@ -25,15 +25,12 @@ void DataGetter::finish_with_error(MYSQL *con) {
 
 
 
-int DataGetter::findUsernameInDatabase(char * loginTyped, char * passwordTyped)
+int DataGetter::findUsernameInDatabase(char * login_typed, char * password_typed)
 {
-	
-	
-	char queryBuff[2048];
 
-	sprintf_s(queryBuff, "SELECT user_id FROM users \
+	sprintf_s(this->queryBuff, "SELECT user_id FROM users \
 										 WHERE login = '%s' \
-											AND password = '%s'", loginTyped, passwordTyped);
+											AND password = '%s'", login_typed, password_typed);
 
 	result = getResult(queryBuff, connector);
 
@@ -45,6 +42,47 @@ int DataGetter::findUsernameInDatabase(char * loginTyped, char * passwordTyped)
 
 	else {
 		return 1;
+	}
+
+
+}
+
+bool DataGetter::checkIfUsernameIsAvailable(char * login_typed) {
+
+	sprintf_s(queryBuff, "SELECT user_id FROM users\
+										WHERE login = '%s'", login_typed);
+
+	result = getResult(queryBuff, connector);
+
+	row = mysql_fetch_row(result);
+
+	if (row != NULL) {		//username already exists in database
+		return false;
+	}
+
+	else {
+		return true;
+	}
+
+}
+
+bool DataGetter::checkIfEmailAdressIsAvailable(char * email_typed)
+{
+
+
+	sprintf_s(queryBuff, "SELECT user_id FROM users\
+										WHERE email = '%s'", email_typed);
+
+	result = getResult(queryBuff, connector);
+
+	row = mysql_fetch_row(result);
+
+	if (row != NULL) {			//email adress is in use
+		return false;	
+	}
+
+	else {
+		return true;
 	}
 
 

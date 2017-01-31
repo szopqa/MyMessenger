@@ -13,22 +13,31 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\User">
+      <UniqueIdentifier>{a1dce4c5-bc97-4419-a311-c9feda43cf05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DatabaseManagement">
+      <UniqueIdentifier>{29a85927-915a-4b12-917a-a785d240858b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UserInterface">
+      <UniqueIdentifier>{1e9301c9-7ef7-4d8b-8d26-6703017f55c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DataGetter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AppLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="UserData.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\User</Filter>
+    </ClInclude>
+    <ClInclude Include="DataGetter.h">
+      <Filter>Source Files\DatabaseManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceManager.h">
+      <Filter>Source Files\UserInterface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -38,17 +47,17 @@
     <ClCompile Include="LoggerSource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DataGetter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AppLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InterfaceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="UserData.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\User</Filter>
+    </ClCompile>
+    <ClCompile Include="DataGetter.cpp">
+      <Filter>Source Files\DatabaseManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceManager.cpp">
+      <Filter>Source Files\UserInterface</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
