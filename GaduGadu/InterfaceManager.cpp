@@ -11,40 +11,75 @@ InterfaceManager::~InterfaceManager()
 {
 }
 
+void InterfaceManager::showLoginMenu(char*log, char*pass) {
+	
+	system("cls");
 
-void InterfaceManager::ShowMainMenu() {
+	cout << "Insert login: ";
+	cin >> log;
+	cout << "Insert password: ";
+	cin >> pass;
 
-	int loginChoice = 0;
-	int loginResult = 0;
-	AppLogic action;
+}
+
+
+void InterfaceManager::showMainMenu() {
+
+	int login_choice = 0;
+	int login_result = 0;
+	bool logged = false;
+	AppLogic feature;
+		
 
 	cout << "1. Log in" << endl;
 	cout << "2. Create a new account" << endl;
 	cout << "3. Exit" << endl;
 	cout << "==========================\n Choice: ";
-	cin >> loginChoice;
+	cin >> login_choice;
 
-	switch (loginChoice) {
 
-		case 1:
+
+	while (logged == false) {
+
+
+		switch (login_choice) {
+
+
+
+			case 1:
 			
-			action.Authorise();
+				login_result = feature.Authorise();
+				
+				if (login_result == 1) {
+					logged = true;
+				}
 
 			break;
 
 
 
-		case 2:
+				case 2:
 
-			break;
 
-		case 3:
 
-			break;
+					break;
 
-		default:
 
-			break;
+
+
+					case 3:
+
+						break;
+
+							default:
+
+								break;
+		}
+
+
+
 	}
+
+
 
 }

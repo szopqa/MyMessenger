@@ -12,7 +12,8 @@ class InterfaceManager
 {
 public:
 
-	static void ShowMainMenu();
+	static void showMainMenu();
+	static void showLoginMenu(char * log, char * pass);
 
 	InterfaceManager();
 	~InterfaceManager();

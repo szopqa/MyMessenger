@@ -15,9 +15,13 @@ class DataGetter{
 	MYSQL_ROW row;
 
 public:
+	
 	DataGetter(char *host, char *user, char *password, char *database);
-
+	DataGetter();
 	~DataGetter();
 
+	int findUsernameInDatabase(char *login, char*password);
+	MYSQL_RES * getResult(char *buff, MYSQL *con);
+	void finish_with_error(MYSQL *con);
 };
 

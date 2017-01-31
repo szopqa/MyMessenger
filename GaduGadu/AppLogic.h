@@ -1,9 +1,19 @@
 #pragma once
+
+#include "DataGetter.h"
+#include "InterfaceManager.h"
+#include "UserData.h"
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 class AppLogic
 {
 
 private:
-	bool loggedIn;
+	DataGetter data;
 
 public:
 
@@ -12,6 +22,5 @@ public:
 
 	int CreateNewAccount();
 	int Authorise();
-	bool checkIfLoggedIn();	
 };
 
