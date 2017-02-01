@@ -150,13 +150,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AppLogic.h" />
     <ClInclude Include="DataGetter.h" />
+    <ClInclude Include="InterfaceManager.h" />
     <ClInclude Include="Logger.h" />
+    <ClInclude Include="UserData.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AppLogic.cpp" />
     <ClCompile Include="DataGetter.cpp" />
+    <ClCompile Include="InterfaceManager.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LoggerSource.cpp" />
+    <ClCompile Include="UserData.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

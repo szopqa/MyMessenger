@@ -23,6 +23,7 @@ public:
 	~DataGetter();
 
 	int findUsernameInDatabase(char *login, char*password);
+	int addNewUserToDatabase(char*login, char*password, char*email_adress);
 	bool checkIfUsernameIsAvailable(char * login_typed);
 	bool checkIfEmailAdressIsAvailable( char * email_typed);
 	MYSQL_RES * getResult(char *buff, MYSQL *con);

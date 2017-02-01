@@ -30,14 +30,14 @@
     <ClInclude Include="AppLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UserData.h">
-      <Filter>Source Files\User</Filter>
-    </ClInclude>
     <ClInclude Include="DataGetter.h">
       <Filter>Source Files\DatabaseManagement</Filter>
     </ClInclude>
     <ClInclude Include="InterfaceManager.h">
       <Filter>Source Files\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="UserData.h">
+      <Filter>Source Files\User</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -50,14 +50,17 @@
     <ClCompile Include="AppLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserData.cpp">
-      <Filter>Source Files\User</Filter>
-    </ClCompile>
     <ClCompile Include="DataGetter.cpp">
       <Filter>Source Files\DatabaseManagement</Filter>
     </ClCompile>
     <ClCompile Include="InterfaceManager.cpp">
       <Filter>Source Files\UserInterface</Filter>
     </ClCompile>
+    <ClCompile Include="UserData.cpp">
+      <Filter>Source Files\User</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

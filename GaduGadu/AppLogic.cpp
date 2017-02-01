@@ -12,7 +12,31 @@ AppLogic::~AppLogic()
 {
 }
 
-int AppLogic::CreateNewAccount(){
+void initializeMainMenu() {
+
+	int login_choice;
+
+	bool logged = false;
+
+	InterfaceManager::showMainMenu(login_choice);
+
+	while (logged == false) {
+
+		switch (login_choice) {
+
+		case 1:
+			
+			break;
+
+		}
+		
+
+	}
+
+
+}
+
+int AppLogic::createNewAccount(){
 	
 	char login_typed[50];
 	char password_typed[50];
@@ -23,6 +47,17 @@ int AppLogic::CreateNewAccount(){
 	InterfaceManager::showCreateNewAccountMenu(login_typed, password_typed, mail_typed);
 	
 	creatingResult = checIfUserExists(login_typed, mail_typed);
+
+	switch (creatingResult) {
+	
+		case 1:
+
+		break;
+
+		default:
+			//TODO
+		break;
+	}
 	
 }
 
@@ -36,8 +71,10 @@ int AppLogic::checIfUserExists(char *login, char*email) {
 	emailIsAvailable = data.checkIfEmailAdressIsAvailable(email);
 
 	if (usernameIsAvailable == true && emailIsAvailable == true) {
-		//Create new account
+		return 1;
 	}
+
+	//TODO
 
 		else if (usernameIsAvailable == true && emailIsAvailable == false) {
 			//Email in use

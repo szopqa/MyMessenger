@@ -31,7 +31,7 @@ Logger::~Logger()
 
 
 
-int Logger::CreateNewAccount()
+int Logger::createNewAccount()
 {
 
 /*

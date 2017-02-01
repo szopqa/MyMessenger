@@ -6,11 +6,9 @@ using namespace std;
 
 int main() {
 
-	InterfaceManager::showMainMenu();
+	AppLogic app;
 
-
-
-
+	app.initnializeMainMenu();
 
 	return 0;
 }
@@ -91,7 +89,7 @@ void loginMenu(Logger &log) {
 
 		case 2:
 
-			loginResult = log.CreateNewAccount();
+			loginResult = log.createNewAccount();
 
 			switch (loginResult) {
 

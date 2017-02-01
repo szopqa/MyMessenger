@@ -20,7 +20,9 @@ public:
 	AppLogic();
 	~AppLogic();
 
-	int CreateNewAccount();
+	void initnializeMainMenu();
+
+	int createNewAccount();
 	int checIfUserExists(char * login, char * email);
 	int Authorise();
 };

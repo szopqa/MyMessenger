@@ -11,7 +11,18 @@ DataGetter::DataGetter() {
 
 DataGetter::DataGetter(char * host, char * user, char * password, char * database)
 {
+	//Connecting to database
 
+	connector = mysql_init(NULL);
+
+	if (connector == NULL) {
+		fprintf(stderr, "mysql_init() failed\n");
+		exit(0);
+	}
+
+	if (mysql_real_connect(connector, host, user, password, database, 0, NULL, 0) == NULL) {
+		finish_with_error(connector);
+	}
 }
 
 
@@ -47,6 +58,7 @@ int DataGetter::findUsernameInDatabase(char * login_typed, char * password_typed
 
 }
 
+
 bool DataGetter::checkIfUsernameIsAvailable(char * login_typed) {
 
 	sprintf_s(queryBuff, "SELECT user_id FROM users\
@@ -65,6 +77,16 @@ bool DataGetter::checkIfUsernameIsAvailable(char * login_typed) {
 	}
 
 }
+
+int DataGetter::addNewUserToDatabase(char * login, char * password, char * email_adress)
+{
+	sprintf_s(queryBuff, "INSERT INTO users VALUE (user_id,'%s','%s','%s')",login,password,email_adress);
+
+	if (mysql_query(connector, queryBuff)) {
+		finish_with_error(connector);
+	}
+}
+
 
 bool DataGetter::checkIfEmailAdressIsAvailable(char * email_typed)
 {

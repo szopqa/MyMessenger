@@ -25,7 +25,7 @@ private:
 public:
 	Logger(char *host,char *user, char *password, char *database);
 	~Logger();
-	int CreateNewAccount();
+	int createNewAccount();
 	int Authorise();
 	MYSQL_RES * getResult(char *buff, MYSQL *con);
 	bool checkIfLoggedIn();
